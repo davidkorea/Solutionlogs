@@ -1,0 +1,2 @@
+module LognotesHelper
+end
