@@ -1,0 +1,2 @@
+module Admin::LognotesHelper
+end

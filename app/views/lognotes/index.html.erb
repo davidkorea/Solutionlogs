@@ -7,22 +7,30 @@
 </p>
 
 <h1>lognotes</h1>
-<table id="lognotes">
+
+<table class="table table-boldered">
   <tr>
     <th>CaseID</th>
     <th>Title</th>
     <th>Description</th>
     <th>organization</th>
-    <!-- <th>customertype</th>
-    <th>opco</th>
-    <th>calldate</th>
-    <th>handled_by</th>
-    <th>resolved</th>
-    <th>source</th>
-    <th>attachment</th> -->
   </tr>
-<%= render @lognotes %>
+  <% @lognotes.each do |lognote| %>
+
+  <tr>
+      <td> <%= link_to(lognote.caseid, lognote_path(lognote)) %></td>
+      <td><%= lognote.title %></td>
+      <td><%= lognote.description %></td>
+      <td><%= lognote.organization %></td>
+
+
+  </tr>
+  <% end %>
 </table>
+
+
+
+
 
 
 <h2>Import lognotes</h2>

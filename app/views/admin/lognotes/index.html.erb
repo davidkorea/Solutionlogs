@@ -1,0 +1,26 @@
+<div class="pull-right">
+  <%= link_to("Add a lognote", new_admin_lognote_path, :class => "btn btn-default" ) %>
+</div>
+
+<br><br>
+
+<table class="table table-boldered">
+  <% @lognotes.each do |lognote| %>
+  <tr>
+    <td>
+      <%= link_to(lognote.caseid, admin_lognote_path(lognote)) %></td>
+      <td><%= lognote.title %></td>
+      <td><%= lognote.description %></td>
+      <td><%= lognote.organization %></td>
+
+    <td>
+      <%= link_to("Edit", edit_admin_lognote_path(lognote)) %>
+      <%= link_to("Destroy", admin_lognote_path(lognote),
+       :method => :delete, :data =>  {:confirm => "Are you sure?"} ) %>
+    </td>
+    <td>
+      <%= lognote.created_at %>
+    </td>
+  </tr>
+  <% end %>
+</table>

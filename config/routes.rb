@@ -8,6 +8,12 @@ Rails.application.routes.draw do
     end
   end
 
+
+  namespace :admin do
+    resources :lognotes
+  end
+
+
   root 'lognotes#index'
 
 

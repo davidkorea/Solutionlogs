@@ -1,0 +1,19 @@
+<h1> Add a lognote </h1>
+
+<%= simple_form_for [:admin,@lognote] do |f| %>
+
+
+<%= f.input :caseid %>
+<%= f.input :title %>
+<%= f.input :description %>
+<%= f.input :organization %>
+<%= f.input :customertype %>
+<%= f.input :opco %>
+<%= f.input :calldate %>
+<%= f.input :handled_by %>
+<%= f.input :resolved %>
+<%= f.input :source %>
+<%= f.input :attachment %>
+
+  <%= f.submit "Submit" %>
+<% end %>
