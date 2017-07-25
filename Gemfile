@@ -37,6 +37,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'roo'
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'simple_form'
+
 
 
 
