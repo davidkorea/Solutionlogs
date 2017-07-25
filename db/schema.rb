@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170725112651) do
+ActiveRecord::Schema.define(version: 20170725120523) do
 
   create_table "lognotes", force: :cascade do |t|
     t.string   "caseid"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170725112651) do
     t.boolean  "resolved"
     t.string   "source"
     t.text     "attachment"
+    t.string   "image"
   end
 
   create_table "users", force: :cascade do |t|

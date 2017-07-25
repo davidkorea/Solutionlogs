@@ -12,6 +12,8 @@
 <%= f.input :resolved %>
 <%= f.input :source %>
 <%= f.input :attachment %>
-
+<div class="group">
+  <%= f.input :image, as: :file %>
+</div>
   <%= f.submit "Submit" %>
 <% end %>

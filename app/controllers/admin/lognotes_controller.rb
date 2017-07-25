@@ -6,8 +6,12 @@ class Admin::LognotesController < ApplicationController
 
     layout "admin"
 
+    def import
+      Lognote.import(params[:file])
 
-    
+      redirect_to root_url, notice: 'lognotes imported.'
+    end
+
   def index
     @lognotes = Lognote.all
   end
@@ -55,7 +59,7 @@ class Admin::LognotesController < ApplicationController
 
   def lognote_params
     params.require(:lognote).permit(:caseid, :title, :description, :organization, :customertype,
-     :opco, :calldate, :handled_by, :resolved, :source, :attachment)
+     :opco, :calldate, :handled_by, :resolved, :source, :attachment, :image)
   end
 
 
