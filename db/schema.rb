@@ -10,14 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170723120354) do
+ActiveRecord::Schema.define(version: 20170724015510) do
 
   create_table "lognotes", force: :cascade do |t|
     t.string   "caseid"
     t.text     "title"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.text     "organization"
+    t.string   "customertype"
+    t.string   "opco"
+    t.date     "calldate"
+    t.string   "handled_by"
+    t.boolean  "resolved"
+    t.string   "source"
+    t.text     "attachment"
   end
 
 end

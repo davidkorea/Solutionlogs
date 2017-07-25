@@ -7,7 +7,7 @@ class Lognote < ApplicationRecord
     CSV.generate(options) do |csv|
       csv << column_names
       all.each do |lognote|
-        csv << lognote.column_values
+        csv << lognote.attributes.values
       end
     end
   end

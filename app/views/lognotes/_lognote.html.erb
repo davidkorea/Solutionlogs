@@ -1,5 +1,14 @@
 <tr>
-  <td><%= lognote.caseid %></td>
+  <td><%= link_to(lognote.caseid, lognote_path(lognote) )%></td>
+
   <td><%= lognote.title %></td>
   <td><%= lognote.description %></td>
+  <td><%= lognote.organization %></td>
+  <td><%= lognote.customertype %></td>
+  <td><%= lognote.opco %></td>
+  <td><%= lognote.calldate %></td>
+  <td><%= lognote.handled_by %></td>
+  <td><%= lognote.resolved %></td>
+  <td><%= lognote.source %></td>
+  <td><%= lognote.attachment %></td>
 </tr>
