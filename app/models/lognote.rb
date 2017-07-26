@@ -3,12 +3,14 @@ require 'csv'
 class Lognote < ApplicationRecord
 
   mount_uploader :image, ImageUploader
-  
+
   def self.to_csv(options = {})
+    desired_columns = ["caseid", "title", "description", "organization", "customertype",
+    "opco", "calldate", "handled_by", "resolved", "source", 'attachment']
     CSV.generate(options) do |csv|
-      csv << column_names
+      csv << desired_columns
       all.each do |lognote|
-        csv << lognote.attributes.values
+        csv << lognote.attributes.values_at(*desired_columns)
       end
     end
   end

@@ -1,7 +1,7 @@
 class LognotesController < ApplicationController
 
   def index
-    @lognotes = Lognote.all
+    @lognotes = Lognote.all.paginate(:page => params[:page], :per_page =>15)
 
     respond_to do |format|
       format.html
@@ -18,6 +18,7 @@ class LognotesController < ApplicationController
 
   def show
     @lognote = Lognote.find(params[:id])
+
   end
 
   def new

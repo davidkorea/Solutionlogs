@@ -1,6 +1,10 @@
 <script src="//cdn.bootcss.com/Chart.js/2.5.0/Chart.bundle.min.js"></script>
 
-
+<p>
+  Download:
+  <%= link_to "CSV", lognotes_path(format: "csv") %> |
+  <%= link_to "Excel", lognotes_path(format: "xls") %>
+</p>
 
 
 <h2>Import lognotes</h2>
