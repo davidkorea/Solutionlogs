@@ -1,0 +1,2 @@
+class ImportcsvController < ApplicationController
+end
