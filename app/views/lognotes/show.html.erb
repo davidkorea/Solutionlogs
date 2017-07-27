@@ -1,4 +1,4 @@
-<script src="//cdn.bootcss.com/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+
 
 <div class="pull-right">
   <% if current_user == @lognote.user %>
@@ -18,71 +18,3 @@
 <p>resolved<%= @lognote.resolved %></p>
 <p>source<%= simple_format(@lognote.source) %></p>
 <p>attachment<%= simple_format(@lognote.attachment )%></p>
-
-<!-- <table>
-  <tr>
-    <th>CaseID</th>
-    <th>Title</th>
-    <th>Description</th>
-    <th>organization</th>
-    <th>customertype</th>
-    <th>opco</th>
-    <th>calldate</th>
-    <th>handled_by</th>
-    <th>resolved</th>
-    <th>source</th>
-    <th>attachment</th>
-  </tr>
-
-</table> -->
-
-
-<canvas id="myChart" width="400" height="200"></canvas>
-<!-- <%= @a = Lognote.find_by_sql("SELECT caseid FROM lognotes WHERE be_resolved != 0 ")%>
-<%= @a.count %> -->
-
-</br>
-
-
-<p>be_resolved count=<%= @resolvedcount = Lognote.where(:be_resolved => true).count%></p>
-
-<script>
-var ctx = document.getElementById("myChart");
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ["Total", "Solved", "unsolved"],
-        datasets: [{
-            label: '# of Votes',
-            data: [<%= Lognote.count(:caseid) %>, <%= @resolvedcount %>,
-              <%= Lognote.count(:caseid) %>-<%= @resolvedcount %>],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
-        }
-    }
-});
-</script>
