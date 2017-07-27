@@ -7,6 +7,6 @@ class AddDetailsToLognote < ActiveRecord::Migration[5.0]
     add_column :lognotes, :handled_by, :string
     add_column :lognotes, :resolved, :boolean
     add_column :lognotes, :source, :string
-    add_column :lognotes, :attachment, :text 
+    add_column :lognotes, :attachment, :text
   end
 end

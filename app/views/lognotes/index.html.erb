@@ -6,7 +6,8 @@
   <%= link_to "Excel", lognotes_path(format: "xls") %>
 </p>
 
-<h1>lognotes</h1>
+<h1>lognotes</h1>(Total:<%= Lognote.count(:caseid)%>)
+
 <div class="pull-right">
   <%= link_to("Add a lognote", new_lognote_path, :class => "btn btn-default" ) %>
 </div>

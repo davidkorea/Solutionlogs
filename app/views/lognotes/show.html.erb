@@ -33,6 +33,14 @@
 
 
 <canvas id="myChart" width="400" height="200"></canvas>
+<!-- <%= @a = Lognote.find_by_sql("SELECT caseid FROM lognotes WHERE be_resolved != 0 ")%>
+<%= @a.count %> -->
+
+</br>
+
+
+<p>be_resolved count=<%= @resolvedcount = Lognote.where(:be_resolved => true).count%></p>
+
 <script>
 var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
@@ -41,7 +49,8 @@ var myChart = new Chart(ctx, {
         labels: ["Total", "Solved", "unsolved"],
         datasets: [{
             label: '# of Votes',
-            data: [<%= Lognote.count(:caseid) %>, <%= Lognote.count(:resolved ) %>, <%= Lognote.count(:caseid) %>-<%= Lognote.count(:resolved ) %>],
+            data: [<%= Lognote.count(:caseid) %>, <%= @resolvedcount %>,
+              <%= Lognote.count(:caseid) %>-<%= @resolvedcount %>],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

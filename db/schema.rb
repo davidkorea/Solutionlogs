@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170725120523) do
+ActiveRecord::Schema.define(version: 20170726092855) do
 
   create_table "lognotes", force: :cascade do |t|
     t.string   "caseid"
     t.text     "title"
     t.text     "description"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
     t.text     "organization"
     t.string   "customertype"
     t.string   "opco"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170725120523) do
     t.string   "source"
     t.text     "attachment"
     t.string   "image"
+    t.boolean  "be_resolved",  default: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,4 +1,4 @@
-
+<h2><%= Lognote.count(:caseid)%> logs in Total</h2>
 <div class="pull-right">
   <%= link_to("Add a lognote", new_admin_lognote_path, :class => "btn btn-default" ) %>
 </div>
@@ -33,3 +33,6 @@
   </tr>
   <% end %>
 </table>
+<div class="text-center">
+  <%= will_paginate @lognotes, render: BootstrapPagination::Rails %>
+</div>
