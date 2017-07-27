@@ -6,7 +6,7 @@ class Lognote < ApplicationRecord
 
   def self.to_csv(options = {})
     desired_columns = ["caseid", "title", "description", "organization", "customertype",
-    "opco", "calldate", "handled_by", "resolved", "source", 'attachment']
+    "opco", "calldate", "handled_by", "be_resolved", "source", 'attachment']
     CSV.generate(options) do |csv|
       csv << desired_columns
       all.each do |lognote|
