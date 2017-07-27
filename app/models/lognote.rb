@@ -26,6 +26,6 @@ class Lognote < ApplicationRecord
     end
   end
 
-
+  belongs_to :user
 
 end

@@ -14,7 +14,8 @@
     <th>Resolved</th>
     <th>Handled_by</th>
     <th>Options</th>
-    <th>created_at</th>
+    <th>Creator</th>
+    <th>Created_at</th>
   </tr>
   <% @lognotes.each do |lognote| %>
   <tr>
@@ -37,6 +38,7 @@
       <%= link_to("Destroy", admin_lognote_path(lognote),
        :method => :delete, :data =>  {:confirm => "Are you sure?"} ) %>
     </td>
+    <td><%= lognote.user.email %></td>
     <td>
       <%= lognote.created_at %>
     </td>

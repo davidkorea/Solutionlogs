@@ -26,6 +26,7 @@ class Admin::LognotesController < ApplicationController
 
   def create
     @lognote = Lognote.new(lognote_params)
+    @lognote.user = current_user
     if @lognote.save
       redirect_to admin_lognotes_path
     else
