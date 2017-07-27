@@ -1,8 +1,7 @@
 <script src="//cdn.bootcss.com/Chart.js/2.5.0/Chart.bundle.min.js"></script>
 
 <canvas id="myChart" width="400" height="200"></canvas>
-<!-- <%= @a = Lognote.find_by_sql("SELECT caseid FROM lognotes WHERE be_resolved != 0 ")%>
-<%= @a.count %> -->
+
 
 <p>my_total=<%= @my_total = Lognote.where(:user_id => current_user.id).count%></p>
 <p>my_resolved=<%= @my_resolved = Lognote.where(:be_resolved => true,
@@ -85,7 +84,7 @@ var myChart = new Chart(ctx, {
       <%= link_to("Destroy", lognote_path(lognote),
        :method => :delete, :data =>  {:confirm => "Are you sure?"} ) %>
     </td>
-    
+
     <td>
       <%= lognote.created_at %>
     </td>
