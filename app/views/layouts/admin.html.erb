@@ -9,6 +9,7 @@
 <body>
   <div class="container">
     <%= render "common/navbar" %>
+    <%= render "common/flashes" %>
     <div class="row">
       <div class="col-md-2">
         <ul class="nav nav-pills nav-stacked" style="max-width: 300px;">
@@ -18,7 +19,12 @@
       </div>
       <div class="col-md-10">
         <%= yield %>
+          </br>
+        </br>
+      </br>
       </div>
+
+      <%= render "common/footer" %>
     </div>
   </div>
 </body>
