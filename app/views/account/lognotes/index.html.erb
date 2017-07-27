@@ -1,0 +1,94 @@
+<script src="//cdn.bootcss.com/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+
+<canvas id="myChart" width="400" height="200"></canvas>
+<!-- <%= @a = Lognote.find_by_sql("SELECT caseid FROM lognotes WHERE be_resolved != 0 ")%>
+<%= @a.count %> -->
+
+<p>my_total=<%= @my_total = Lognote.where(:user_id => current_user.id).count%></p>
+<p>my_resolved=<%= @my_resolved = Lognote.where(:be_resolved => true,
+:user_id => current_user.id).count%></p>
+
+
+<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ["Total", "Resolved", "Unresolved"],
+        datasets: [{
+            label: '# My Chart',
+            data: [<%= @my_total %>, <%= @my_resolved %>,
+              <%= @my_total %>-<%= @my_resolved %>],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+
+
+
+<table class="table table-boldered">
+  <tr>
+    <th>CaseID</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Organization</th>
+    <th>Resolved</th>
+    <th>Handled_by</th>
+    <th>Options</th>
+    <th>Creator</th>
+    <th>Created_at</th>
+  </tr>
+  <% @lognotes.each do |lognote| %>
+  <tr>
+    <td>
+      <%= link_to(lognote.caseid, lognote_path(lognote)) %></td>
+      <td><%= lognote.title %></td>
+      <td><%= lognote.description %></td>
+      <td><%= lognote.organization %></td>
+      <td>
+        <% if lognote.be_resolved %>
+        <i class="fa fa-heart" aria-hidden="true"></i>
+        <% else %>
+        <i class="fa fa-heart-o" aria-hidden="true"></i>
+        <% end %>
+      </td>
+      <td><%= lognote.handled_by %></td>
+
+    <td>
+      <%= link_to("Edit", edit_lognote_path(lognote)) %>
+      <%= link_to("Destroy", lognote_path(lognote),
+       :method => :delete, :data =>  {:confirm => "Are you sure?"} ) %>
+    </td>
+    <td><%= lognote.user.email %></td>
+    <td>
+      <%= lognote.created_at %>
+    </td>
+  </tr>
+  <% end %>
+</table>

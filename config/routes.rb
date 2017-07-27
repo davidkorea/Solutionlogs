@@ -14,6 +14,11 @@ Rails.application.routes.draw do
     resources :importfiles
   end
 
+  namespace :account do
+    resources :lognotes
+  end
+
+
 
   root 'lognotes#index'
 
