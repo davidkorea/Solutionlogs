@@ -9,7 +9,7 @@
   <tr>
     <th>CaseID</th>
     <th>Title</th>
-    <th>Description</th>
+
     <th>Organization</th>
     <th>Resolved</th>
     <th>Handled_by</th>
@@ -22,7 +22,7 @@
     <td>
       <%= link_to(lognote.caseid, admin_lognote_path(lognote)) %></td>
       <td><%= lognote.title %></td>
-      <td><%= lognote.description %></td>
+
       <td><%= lognote.organization %></td>
       <td>
         <% if lognote.be_resolved %>

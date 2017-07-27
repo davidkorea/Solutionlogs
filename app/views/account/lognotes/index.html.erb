@@ -61,7 +61,7 @@ var myChart = new Chart(ctx, {
     <th>Resolved</th>
     <th>Handled_by</th>
     <th>Options</th>
-    <th>Creator</th>
+
     <th>Created_at</th>
   </tr>
   <% @lognotes.each do |lognote| %>
@@ -85,7 +85,7 @@ var myChart = new Chart(ctx, {
       <%= link_to("Destroy", lognote_path(lognote),
        :method => :delete, :data =>  {:confirm => "Are you sure?"} ) %>
     </td>
-    <td><%= lognote.user.email %></td>
+    
     <td>
       <%= lognote.created_at %>
     </td>
