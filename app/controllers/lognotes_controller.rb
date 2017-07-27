@@ -63,7 +63,7 @@ class LognotesController < ApplicationController
   private
   def lognote_params
     params.require(:lognote).permit(:caseid, :title, :description, :organization, :customertype,
-     :opco, :calldate, :handled_by, :resolved, :source, :attachment, :image)
+     :opco, :calldate, :handled_by, :be_resolved, :source, :attachment, :image)
    end
 
 end
