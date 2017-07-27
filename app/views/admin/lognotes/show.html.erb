@@ -1,5 +1,8 @@
 <div class="pull-right">
+  <% if current_user == @lognote.user %>
+
   <%= link_to("Edit", edit_admin_lognote_path(@lognote), :class => "btn btn-default" ) %>
+  <% end %>
 </div>
 <h1>title: <%= @lognote.title %> </h1>
 

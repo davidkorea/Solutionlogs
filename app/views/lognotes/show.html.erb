@@ -1,5 +1,10 @@
 <script src="//cdn.bootcss.com/Chart.js/2.5.0/Chart.bundle.min.js"></script>
 
+<div class="pull-right">
+  <% if current_user == @lognote.user %>
+  <%= link_to("Edit", edit_lognote_path(@lognote), :class => "btn btn-default" ) %>
+  <% end %>
+</div>
 <h1>title: <%= @lognote.title %> </h1>
 
 <p>description
