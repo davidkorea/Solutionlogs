@@ -11,8 +11,13 @@ Rails.application.routes.draw do
 
 
   namespace :admin do
-    resources :lognotes
+    resources :lognotes do
+      collection do
+        get :search
+      end      
+    end
     resources :importfiles
+
   end
 
   namespace :account do

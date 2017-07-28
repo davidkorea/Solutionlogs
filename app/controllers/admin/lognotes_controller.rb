@@ -3,6 +3,7 @@ class Admin::LognotesController < ApplicationController
 
     before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
     before_action :require_is_admin
+    before_action :validate_search_key, only: [:search]
 
     layout "admin"
 
@@ -52,6 +53,25 @@ class Admin::LognotesController < ApplicationController
     @lognote.destroy
     flash[:alert] = "Deleted"
     redirect_to admin_lognotes_path
+  end
+
+
+  def search
+    if @query_string.present?
+      search_result = Lognote.ransack(@search_criteria).result(:distinct => true)
+      @lognotes = search_result.paginate(:page => params[:page], :per_page => 5 )
+    end
+  end
+
+  protected
+
+  def validate_search_key
+   @query_string = params[:q].gsub(/\\|\'|\/|\?/, "") if params[:q].present?
+   @search_criteria = search_criteria(@query_string)
+  end
+
+  def search_criteria(query_string)
+   { :title_or_description_or_caseid_or_organization_or_handled_by_cont => query_string }
   end
 
 
