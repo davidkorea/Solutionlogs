@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :lognotes do
     collection do
       post :import
+      get :search
     end
   end
 

@@ -1,0 +1,45 @@
+<div class="content">
+  <h3>Search Results</h3>
+  <% if @lognotes.blank? %>
+    <div class="text-center">
+      </br></br></br>
+      没有符合搜索条件的资料哦！
+    </br></br></br>
+      <%= link_to("HomePage", lognotes_path, class: "btn btn-sm btn-success") %>
+    </div>
+  <% else %>
+
+    <table class="table table-boldered">
+      <tr>
+        <th>CaseID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Organization</th>
+        <th>Resolved</th>
+        <th>Handled_by</th>
+      </tr>
+      <% @lognotes.each do |lognote| %>
+
+      <tr>
+          <td><%= link_to(lognote.caseid,lognote_path(lognote)) %></td>
+          <td><%= lognote.title %></td>
+          <td><%= lognote.description %></td>
+          <td><%= lognote.organization %></td>
+          <td>
+            <% if lognote.be_resolved %>
+            <i class="fa fa-heart " aria-hidden="true"></i>
+            <% else %>
+            <i class="fa fa-heart-o " aria-hidden="true"></i>
+            <% end %>
+          </td>
+          <td><%= lognote.handled_by %></td>
+
+      </tr>
+      <% end %>
+    </table>
+
+    <div class="text-center">
+      <%= will_paginate(@lognotes, renderer: BootstrapPagination::Rails) %>
+    </div>
+  <% end %>
+</div>
