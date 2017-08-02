@@ -1,27 +1,4 @@
 <h1> Edit a lognote </h1>
 
-<%= simple_form_for [@lognote ] do |f| %>
 
-<%= f.input :caseid %>
-<%= f.input :title %>
-<%= f.input :description %>
-<%= f.input :organization %>
-<%= f.input :customertype %>
-<%= f.input :opco %>
-<%= f.input :calldate %>
-<%= f.input :handled_by %>
-<%= f.input :be_resolved %>
-<%= f.input :source %>
-<%= f.input :attachment %>
-
- <% if @lognote.image.present? %>
-   <span>attached image</span> <br>
-   <%= image_tag(@lognote.image.thumb.url) %>
- <% end %>
-
- <div class="group">
-   <%= f.input :image, as: :file %>
- </div>
-
-  <%= f.submit "Submit" %>
-<% end %>
+<%= render :partial =>"lognote"%>

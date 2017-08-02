@@ -1,14 +1,28 @@
-<tr>
-  <td><%= link_to(lognote.caseid, lognote_path(lognote) )%></td>
+<%= simple_form_for @lognote do |f| %>
+<%= f.input :caseid %>
+<%= f.input :title %>
 
-  <td><%= lognote.title %></td>
-  <td><%= lognote.description %></td>
-  <td><%= lognote.organization %></td>
-  <!-- <td><%= lognote.customertype %></td>
-  <td><%= lognote.opco %></td>
-  <td><%= lognote.calldate %></td>
-  <td><%= lognote.handled_by %></td>
-  <td><%= lognote.resolved %></td>
-  <td><%= lognote.source %></td>
-  <td><%= lognote.attachment %></td> -->
-</tr>
+<%= f.label :product %></br>
+  <% Lognote::PRODUCT.each do |product| %>
+    <label class="btn btn-default <%= (product == f.object.product)? '' : '' %>">
+      <%= f.radio_button :product, product %>
+      <%= t(product, :scope => "lognote.product") %>
+    </label>
+  <% end %>
+</br></br>
+
+
+<%= f.input :description %>
+<%= f.input :organization %>
+<%= f.input :customertype %>
+<%= f.input :opco %>
+<%= f.input :calldate %>
+<%= f.input :handled_by %>
+<%= f.input :be_resolved %>
+<%= f.input :source %>
+<%= f.input :attachment %>
+<div class="group">
+  <%= f.input :image, as: :file %>
+</div>
+  <%= f.submit "Submit" %>
+<% end %>
