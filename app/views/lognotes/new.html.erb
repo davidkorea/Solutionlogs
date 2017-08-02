@@ -15,6 +15,17 @@
       <%= t(product, :scope => "lognote.product") %>
     </label>
   <% end %>
+</br>
+
+  <div class="form-group">
+    <% Lognote::PRODUCT.each do |product| %>
+      <label class="btn btn-default <%= (product == f.object.product)? '' : '' %>">
+        <%= f.radio_button :product, product %>
+        <%= t(product, :scope => "lognote.product") %>
+      </label>
+    <% end %>
+  </div>
+
 
 <%= f.input :description %>
 <%= f.input :organization %>
