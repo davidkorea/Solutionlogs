@@ -9,6 +9,13 @@
  :class => "form-control" %>
 </br>
 
+  <% Lognote::PRODUCT.each do |product| %>
+    <label>
+      <%= f.radio_button :product, product %>
+      <%= t(product, :scope => "lognote.product") %>
+    </label>
+  <% end %>
+
 <%= f.input :description %>
 <%= f.input :organization %>
 <%= f.input :customertype %>
