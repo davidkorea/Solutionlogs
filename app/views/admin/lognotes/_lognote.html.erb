@@ -1,0 +1,32 @@
+
+
+<%= simple_form_for [:admin,@lognote] do |f| %>
+
+
+<%= f.input :caseid %>
+<%= f.input :title %>
+
+<%= f.label :product %></br>
+  <% Lognote::PRODUCT.each do |product| %>
+    <label class="btn btn-default <%= (product == f.object.product)? '' : '' %>">
+      <%= f.radio_button :product, product %>
+      <%= t(product, :scope => "lognote.product") %>
+    </label>
+  <% end %>
+</br></br>
+
+<%= f.input :description %>
+<%= f.input :organization %>
+<%= f.input :customertype %>
+<%= f.input :opco %>
+<%= f.input :calldate %>
+<%= f.input :handled_by %>
+<%= f.input :be_resolved %>
+<%= f.input :source %>
+<%= f.input :attachment %>
+ <div class="group">
+   <%= f.input :image, as: :file %>
+ </div>
+
+  <%= f.submit "Submit" %>
+<% end %>

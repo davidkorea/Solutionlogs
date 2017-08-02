@@ -4,7 +4,7 @@
   <%= link_to("Edit", edit_admin_lognote_path(@lognote), :class => "btn btn-default" ) %>
   <% end %>
 </div>
-<h1>title: <%= @lognote.title %> </h1>
+<h1><%= @lognote.product %> : <%= @lognote.title %> </h1>
 
 <p>description
   <%= simple_format(@lognote.description) %>
