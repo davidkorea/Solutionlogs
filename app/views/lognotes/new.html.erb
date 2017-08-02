@@ -3,6 +3,12 @@
 <%= simple_form_for @lognote do |f| %>
 <%= f.input :caseid %>
 <%= f.input :title %>
+
+<%= f.label :product %>
+ <%= f.select :product, Lognote::PRODUCT.map{|s| [t(s, :scope => "lognote.product"), s] }, {},
+ :class => "form-control" %>
+</br>
+
 <%= f.input :description %>
 <%= f.input :organization %>
 <%= f.input :customertype %>

@@ -28,4 +28,9 @@ class Lognote < ApplicationRecord
 
   belongs_to :user
 
+  PRODUCT = ["AWMS2", "AWMS1"]
+  validates_inclusion_of :product, :in => PRODUCT
+
+
+
 end
