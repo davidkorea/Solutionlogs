@@ -2,7 +2,6 @@
 
 <%= simple_form_for [:admin,@lognote] do |f| %>
 
-
 <%= f.input :caseid %>
 <%= f.input :title %>
 
@@ -15,18 +14,37 @@
   <% end %>
 </br></br>
 
+
 <%= f.input :description %>
 <%= f.input :organization %>
-<%= f.input :customertype %>
-<%= f.input :opco %>
-<%= f.input :calldate %>
-<%= f.input :handled_by %>
-<%= f.input :be_resolved %>
-<%= f.input :source %>
-<%= f.input :attachment %>
- <div class="group">
-   <%= f.input :image, as: :file %>
- </div>
 
+<%= f.label :customertype %>
+<%= f.select :customertype, Lognote::CUSTTYPE.map{
+   |s| [t(s, :scope => "lognote.product"), s] }, {}, :class => "form-control" %>
+
+
+<%= f.label :opco %>
+<%= f.select :opco, Lognote::OPCO.map{
+   |s| [t(s, :scope => "lognote.product"), s] }, {}, :class => "form-control" %>
+
+
+<%= f.input :calldate %>
+
+<%= f.label :handled_by %>
+<%= f.select :handled_by, Lognote::HANDLEBY.map{
+   |s| [t(s, :scope => "lognote.product"), s] }, {}, :class => "form-control" %>
+
+
+<%= f.input :be_resolved %>
+
+
+<%= f.label :source %>
+<%= f.select :source, Lognote::SOURCE.map{
+   |s| [t(s, :scope => "lognote.product"), s] }, {}, :class => "form-control" %>
+
+<%= f.input :attachment %>
+<div class="group">
+  <%= f.input :image, as: :file %>
+</div>
   <%= f.submit "Submit" %>
 <% end %>

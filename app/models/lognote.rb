@@ -31,6 +31,17 @@ class Lognote < ApplicationRecord
   PRODUCT = ["AWMS2", "AWMS1"]
   validates_inclusion_of :product, :in => PRODUCT
 
+  CUSTTYPE = ["End User", "SA", "Sales", "ASP"]
+  validates_inclusion_of :customertype, :in => CUSTTYPE
+
+  OPCO = ["China", "Korea", "Hong Kong"]
+  validates_inclusion_of :opco, :in => OPCO
+
+  HANDLEBY = ["Andy Tsao", "David Liu", "Other"]
+  validates_inclusion_of :handled_by, :in => HANDLEBY
+
+  SOURCE = ["C-Web", "E-mail", "ASP", "Wechat"]
+  validates_inclusion_of :source, :in => SOURCE
 
 
 end
