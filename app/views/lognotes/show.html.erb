@@ -5,17 +5,99 @@
   <%= link_to("Edit", edit_lognote_path(@lognote), :class => "btn btn-default" ) %>
   <% end %>
 </div>
-<h1><%= @lognote.product %> : <%= @lognote.title %> </h1>
 
 
-<p>description
-  <%= simple_format(@lognote.description) %>
-</p>
-<p>organization<%= simple_format(@lognote.organization) %></p>
-<p>customertype<%= simple_format(@lognote.customertype) %></p>
-<p>opco<%= simple_format(@lognote.opco) %></p>
-<p>calldate<%= @lognote.calldate %></p></p>
-<p>handled_by<%= simple_format(@lognote.handled_by )%></p>
-<p>resolved<%= @lognote.resolved %></p>
-<p>source<%= simple_format(@lognote.source) %></p>
-<p>attachment<%= simple_format(@lognote.attachment )%></p>
+
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">
+    Log Details
+
+  </div>
+
+  <!-- Table -->
+  <table class="table">
+    <tr>
+      <th>Items</th>
+
+      <th>Contents</th>
+
+    </tr>
+
+    <tr>
+      <td>Caseid</td>
+
+      <td> <%= @lognote.caseid %></td>
+    </tr>
+
+    <tr>
+      <td>Organization</td>
+      <td> <%= @lognote.organization %></td>
+    </tr>
+
+    <tr>
+      <td>CustomerType</td>
+      <td> <%= @lognote.customertype %></td>
+    </tr>
+
+    <tr>
+      <td>Product</td>
+      <td> <%= @lognote.product %></td>
+    </tr>
+
+    <tr>
+      <td>Problem</td>
+      <td> <%= @lognote.title %></td>
+    </tr>
+
+    <tr>
+      <td>Solution</td>
+      <td> <%= @lognote.description %></td>
+    </tr>
+
+    <tr>
+      <td>Handler</td>
+      <td> <%= @lognote.handled_by %></td>
+    </tr>
+
+
+
+    <tr>
+      <td>Opco</td>
+      <td> <%= @lognote.opco %></td>
+    </tr>
+
+    <tr>
+      <td>Date</td>
+      <td> <%= @lognote.calldate %></td>
+    </tr>
+
+    <tr>
+      <td>Status</td>
+      <td>
+      <% if @lognote.be_resolved %>
+
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+
+      <% else %>
+
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+
+      <% end %>
+      </td>
+    </tr>
+
+    <tr>
+      <td>Source</td>
+      <td> <%= @lognote.source %></td>
+    </tr>
+
+    <tr>
+      <td>Attachment</td>
+      <td> <%= @lognote.attachment %></td>
+    </tr>
+
+
+
+  </table>
+</div>
